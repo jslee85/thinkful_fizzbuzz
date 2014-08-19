@@ -1,6 +1,16 @@
 $(document).ready(function() {
-	for (var i = 1; i <= 100; i++) {
-		if ( ([i]%15) === 0 ) {
+	var aNumber = Number(window.prompt("Type a number."));
+	if (aNumber % 1 !== 0) {
+		alert ("No decimals!");
+	}
+	else {
+		integerCounter(aNumber);
+	}
+});
+
+function integerCounter (number) {
+	for (var i = 1; i <= number; i++) {
+		if ( ([i]%3) === 0 && ([i]%5) === 0) {
 			$('body').append('<div>Fizz buzz</div>');
 		}
 		else if ( ([i])%3 === 0 ) {
@@ -13,4 +23,4 @@ $(document).ready(function() {
 			$('body').append('<div>'+[i]+'</div>');
 		}
 	}
-});
+}
