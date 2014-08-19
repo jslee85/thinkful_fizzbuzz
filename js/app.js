@@ -1,12 +1,19 @@
-$(document).ready(function() {
-	var aNumber = Number(window.prompt("Type a number."));
-	if (aNumber % 1 !== 0) {
-		alert ("No decimals!");
+$(document).ready(getNumber);
+
+function getNumber () {
+	var aNumber = parseInt(window.prompt("Type a number."));
+	if (isNaN(aNumber)) {
+		alert("That's not a number!");
+		getNumber();
+	}
+	else if (aNumber <=0) {
+		alert("Please give me a number greater than 0.");
+		getNumber();
 	}
 	else {
 		integerCounter(aNumber);
 	}
-});
+}
 
 function integerCounter (number) {
 	for (var i = 1; i <= number; i++) {
